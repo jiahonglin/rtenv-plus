@@ -52,6 +52,7 @@ void show_task_info(int argc, char *argv[]);
 void show_man_page(int argc, char *argv[]);
 void show_history(int argc, char *argv[]);
 void show_xxd(int argc, char *argv[]);
+void show_cat(int argc, char *argv[]);
 
 /* Enumeration for command types. */
 enum {
@@ -62,6 +63,7 @@ enum {
 	CMD_MAN,
 	CMD_PS,
 	CMD_XXD,
+    CMD_CAT,
 	CMD_COUNT
 } CMD_TYPE;
 /* Structure for command handler. */
@@ -78,6 +80,7 @@ const hcmd_entry cmd_data[CMD_COUNT] = {
 	[CMD_MAN] = {.cmd = "man", .func = show_man_page, .description = "Manual pager."},
 	[CMD_PS] = {.cmd = "ps", .func = show_task_info, .description = "List all the processes."},
 	[CMD_XXD] = {.cmd = "xxd", .func = show_xxd, .description = "Make a hexdump."},
+    [CMD_CAT] = {.cmd = "cat", .func = show_cat, .description = "show file content."}
 };
 
 /* Structure for environment variables. */
@@ -613,6 +616,12 @@ char char_filter(char c, char fallback)
 }
 
 #define XXD_WIDTH 0x10
+//cat
+
+void show_cat(int argc, char *argv[])
+{
+
+}
 
 //xxd
 void show_xxd(int argc, char *argv[])
